@@ -21,7 +21,7 @@ ADD CONSTRAINT fk_usuarios_barrios
 FOREIGN KEY (id_barrio) REFERENCES barrios(id_barrio);
 
 /*Agregar clave foranea mientras crea la tabla*/
--- FOREIGN KEY (id_barrio) REFERENCES barrios(id_barrio) 
+-- FOREIGN KEY (id_barrio) REFERENCES barrios(id_barrio); 
 
 /*Tabla barrios*/
 CREATE TABLE barrios(
@@ -64,3 +64,27 @@ AND correo LIKE "%gmail.com"
 AND id_usuario >= 10;
 /*Valores unicos*/
 SELECT DISTINCT id_barrio FROM usuarios;
+
+/*COMO INSERTAR DATOS EN UNA TABLA*/
+INSERT INTO usuarios (nombre, correo, numero, id_barrio) VALUES
+("Jose", "Jose@hotmail.com", "3001234123", 1);
+
+/*-----ACTUALIZACION DE REGISTRO EN TABLAS-----*/
+
+UPDATE estudiantes SET apellido_M = "Huerfano" WHERE  id_estudiante="1207902456";
+
+-- NUNCA OLVIDAR EL PARAMETRO WHERE ES SU SENTENCIA SQL
+
+/*-----ELIMINACION DE REGITROS EN TABLAS-----*/
+
+DELETE FROM estudiantes WHERE  id_estudiante="1207702356";
+-- NUNCA OLVIDAR EL PARAMETRO WHERE EN SU SENTENCIA SQL 
+
+SELECT * FROM estudiantes;
+
+/*INNER JOIN*/
+-- CONJUNCION DE DOS O MAS TABLAS
+SELECT *
+FROM usuarios
+INNER JOIN barrios 
+ON usuarios.id_barrio = barrios.id_barrio;
